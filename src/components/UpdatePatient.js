@@ -2,6 +2,60 @@ import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Typography, Box, TextField, Button, MenuItem } from '@mui/material';
 import axios from 'axios';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: '#4a148c', // Deep Purple
+    },
+    secondary: {
+      main: '#ffab00', // Gold
+    },
+    background: {
+      default: '#f3e5f5', // Light lavender background
+    },
+  },
+  typography: {
+    fontFamily: 'Georgia, serif',
+    h4: {
+      color: '#4a148c',
+    },
+    body1: {
+      color: '#6a1b9a',
+    },
+    button: {
+      color: '#ffffff',
+    },
+  },
+  components: {
+    MuiPaper: {
+      styleOverrides: {
+        root: {
+          padding: '16px',
+          marginTop: '20px',
+          borderRadius: '20px',
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+        },
+      },
+    },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: 'none',
+          borderRadius: '20px',
+          padding: '10px 20px',
+          margin: '0 10px',
+          backgroundColor: '#4a148c',
+          '&:hover': {
+            backgroundColor: '#380d6b',
+          },
+        },
+      },
+    },
+  },
+});
 
 const UpdatePatient = () => {
   const location = useLocation();
@@ -71,106 +125,123 @@ const UpdatePatient = () => {
   };
 
   return (
-    <Box sx={{ marginLeft: '240px', padding: '24px' }}>
-      <Typography variant="h4" gutterBottom>
-        Update Patient
-      </Typography>
-      <form onSubmit={handleUpdate}>
-        <TextField
-          label="First Name"
-          value={firstName}
-          onChange={(e) => setFirstName(e.target.value)}
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          label="Last Name"
-          value={lastName}
-          onChange={(e) => setLastName(e.target.value)}
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          label="Gender"
-          value={gender}
-          onChange={(e) => setGender(e.target.value)}
-          fullWidth
-          margin="normal"
-          select
-        >
-          <MenuItem value="male">Male</MenuItem>
-          <MenuItem value="female">Female</MenuItem>
-          <MenuItem value="other">Other</MenuItem>
-          <MenuItem value="unknown">Unknown</MenuItem>
-        </TextField>
-        <TextField
-          label="Birth Date"
-          value={birthDate}
-          onChange={(e) => setBirthDate(e.target.value)}
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          label="Address Line"
-          value={line}
-          onChange={(e) => setLine(e.target.value)}
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          label="City"
-          value={city}
-          onChange={(e) => setCity(e.target.value)}
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          label="State"
-          value={state}
-          onChange={(e) => setState(e.target.value)}
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          label="Postal Code"
-          value={postalCode}
-          onChange={(e) => setPostalCode(e.target.value)}
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          label="Country"
-          value={country}
-          onChange={(e) => setCountry(e.target.value)}
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          label="Phone"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          label="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          fullWidth
-          margin="normal"
-        />
-        <TextField
-          label="ID"
-          value={patient.id}
-          fullWidth
-          margin="normal"
-          disabled
-        />
-        <Button variant="contained" color="primary" type="submit">
-          Update
-        </Button>
-      </form>
-    </Box>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Box sx={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        minHeight: '100vh',
+        bgcolor: 'background.default',
+      }}>
+        <Box sx={{
+          width: '60%',
+          padding: '24px',
+          backgroundColor: 'white',
+          borderRadius: '10px',
+          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+        }}>
+          <Typography variant="h4" gutterBottom>
+            Update Patient
+          </Typography>
+          <form onSubmit={handleUpdate}>
+            <TextField
+              label="First Name"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              label="Last Name"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              label="Gender"
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+              fullWidth
+              margin="normal"
+              select
+            >
+              <MenuItem value="male">Male</MenuItem>
+              <MenuItem value="female">Female</MenuItem>
+              <MenuItem value="other">Other</MenuItem>
+              <MenuItem value="unknown">Unknown</MenuItem>
+            </TextField>
+            <TextField
+              label="Birth Date"
+              value={birthDate}
+              onChange={(e) => setBirthDate(e.target.value)}
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              label="Address Line"
+              value={line}
+              onChange={(e) => setLine(e.target.value)}
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              label="City"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              label="State"
+              value={state}
+              onChange={(e) => setState(e.target.value)}
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              label="Postal Code"
+              value={postalCode}
+              onChange={(e) => setPostalCode(e.target.value)}
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              label="Country"
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              label="Phone"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              label="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              fullWidth
+              margin="normal"
+            />
+            <TextField
+              label="ID"
+              value={patient.id}
+              fullWidth
+              margin="normal"
+              disabled
+            />
+            <Button variant="contained" color="primary" type="submit">
+              Update
+            </Button>
+          </form>
+        </Box>
+      </Box>
+    </ThemeProvider>
   );
 };
 

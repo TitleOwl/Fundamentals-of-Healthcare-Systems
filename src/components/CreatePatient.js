@@ -83,7 +83,7 @@ const CreatePatient = ({ onPatientAdded }) => {
   return (
     <Box sx={{ marginLeft: '240px', padding: '24px' }}>
       <Typography variant="h4" gutterBottom>
-        เพิ่มผู้ป่วยใหม่
+        เพิ่มผู้ป่วย
       </Typography>
       <form onSubmit={handleSubmit}>
         <TextField

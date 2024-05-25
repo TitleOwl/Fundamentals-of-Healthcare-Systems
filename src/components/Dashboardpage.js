@@ -15,7 +15,7 @@ const Dashboard = () => {
         <AppBar position="static">
           <Toolbar>
             <Typography variant="h6" sx={{ flexGrow: 1 }}>
-              ฟอมเฟียว Hospital สาขา 1
+              ฟอมเฟียว Hospital สาขา 111
             </Typography>
             <Button color="inherit" component={Link} to="/patients">
               Patients

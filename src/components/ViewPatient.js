@@ -65,7 +65,8 @@ const ViewPatient = () => {
   }
 
   const { name, gender, birthDate, address, telecom, id } = patient;
-  const fullName = name ? `${name[0].given.join(' ')} ${name[0].family}` : 'N/A';
+const fullName = name ? `${name[0].family} ${name[0].given.join(' ')}` : 'N/A';
+
 
   return (
     <ThemeProvider theme={theme}>

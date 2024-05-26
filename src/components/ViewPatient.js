@@ -1,6 +1,7 @@
 import React from 'react';
 import { Typography, Box, Button, Grid, Paper } from '@mui/material';
 import { useLocation } from 'react-router-dom';
+import './ViewPatient.css';
 
 const ViewPatient = () => {
   const location = useLocation();
@@ -18,7 +19,7 @@ const ViewPatient = () => {
       sx={{
         padding: '24px',
         width: '100vw',
-        height: '100vh',
+        height: '100%',
         bgcolor: 'rgba(0, 0, 0, 0.85)',
         color: '#ffffff',
         borderRadius: 2,
@@ -82,6 +83,264 @@ const ViewPatient = () => {
           <Grid item xs={12} sm={6}>
             <Typography variant="body1" gutterBottom>
               <strong>Email:</strong> {telecom && telecom.find(t => t.system === 'email') ? telecom.find(t => t.system === 'email').value : 'N/A'}
+            </Typography>
+          </Grid>
+        </Grid>
+      </Paper>
+      <Typography variant="h4" gutterBottom sx={{ textAlign: 'left', paddingTop: '20px', color: '#00e676', width: '100%', maxWidth: '1100px' }}>
+        Heart rate
+      </Typography>
+      <Paper sx={{ padding: '24px', marginTop: '20px', bgcolor: 'rgba(0, 0, 0, 0.7)', borderRadius: 2, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)', color: '#ffffff', width: '100%', maxWidth: '1100px' }}>
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>ID: </strong><a>f37c6639-561d-4721-bb43-d09a3a</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Value: </strong><a>69</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Unit: </strong><a>/min</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Category: </strong><a>vital-signs</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Issued: </strong><a>2015-10-16T14:48:16.211+00:00</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>EffectiveDateTime: </strong><a>2015-10-16T14:48:16+00:00</a>
+            </Typography>
+          </Grid>
+        </Grid>
+      </Paper>
+      <Typography variant="h4" gutterBottom sx={{ textAlign: 'left', paddingTop: '20px', color: '#00e676', width: '100%', maxWidth: '1100px' }}>
+        Head Occipital-frontal circumference
+      </Typography>
+      <Paper sx={{ padding: '24px', marginTop: '20px', bgcolor: 'rgba(0, 0, 0, 0.7)', borderRadius: 2, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)', color: '#ffffff', width: '100%', maxWidth: '1100px' }}>
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>ID: </strong><a>f37c6639-561d-4721-bb43-d09a3a</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Value: </strong><a>69</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Unit: </strong><a>/min</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Category: </strong><a>vital-signs</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Issued: </strong><a>2015-10-16T14:48:16.211+00:00</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>EffectiveDateTime: </strong><a>2015-10-16T14:48:16+00:00</a>
+            </Typography>
+          </Grid>
+        </Grid>
+      </Paper><Typography variant="h4" gutterBottom sx={{ textAlign: 'left', paddingTop: '20px', color: '#00e676', width: '100%', maxWidth: '1100px' }}>
+        Blood Pressure
+      </Typography>
+      <Paper sx={{ padding: '24px', marginTop: '20px', bgcolor: 'rgba(0, 0, 0, 0.7)', borderRadius: 2, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)', color: '#ffffff', width: '100%', maxWidth: '1100px' }}>
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>ID: </strong><a>f37c6639-561d-4721-bb43-d09a3a</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Value: </strong><a>69</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Unit: </strong><a>/min</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Category: </strong><a>vital-signs</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Issued: </strong><a>2015-10-16T14:48:16.211+00:00</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>EffectiveDateTime: </strong><a>2015-10-16T14:48:16+00:00</a>
+            </Typography>
+          </Grid>
+        </Grid>
+      </Paper>
+      <Typography variant="h4" gutterBottom sx={{ textAlign: 'left', paddingTop: '20px', color: '#00e676', width: '100%', maxWidth: '1100px' }}>
+        Hemoglobin [Mass/volume] in Blood
+      </Typography>
+      <Paper sx={{ padding: '24px', marginTop: '20px', bgcolor: 'rgba(0, 0, 0, 0.7)', borderRadius: 2, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)', color: '#ffffff', width: '100%', maxWidth: '1100px' }}>
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>ID: </strong><a>f37c6639-561d-4721-bb43-d09a3a</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Value: </strong><a>69</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Unit: </strong><a>/min</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Category: </strong><a>vital-signs</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Issued: </strong><a>2015-10-16T14:48:16.211+00:00</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>EffectiveDateTime: </strong><a>2015-10-16T14:48:16+00:00</a>
+            </Typography>
+          </Grid>
+        </Grid>
+      </Paper>
+      <Typography variant="h4" gutterBottom sx={{ textAlign: 'left', paddingTop: '20px', color: '#00e676', width: '100%', maxWidth: '1100px' }}>
+        Body Weight
+      </Typography>
+      <Paper sx={{ padding: '24px', marginTop: '20px', bgcolor: 'rgba(0, 0, 0, 0.7)', borderRadius: 2, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)', color: '#ffffff', width: '100%', maxWidth: '1100px' }}>
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>ID: </strong><a>f37c6639-561d-4721-bb43-d09a3a</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Value: </strong><a>69</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Unit: </strong><a>/min</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Category: </strong><a>vital-signs</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Issued: </strong><a>2015-10-16T14:48:16.211+00:00</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>EffectiveDateTime: </strong><a>2015-10-16T14:48:16+00:00</a>
+            </Typography>
+          </Grid>
+        </Grid>
+      </Paper>
+      <Typography variant="h4" gutterBottom sx={{ textAlign: 'left', paddingTop: '20px', color: '#00e676', width: '100%', maxWidth: '1100px' }}>
+        Body Height
+      </Typography>
+      <Paper sx={{ padding: '24px', marginTop: '20px', bgcolor: 'rgba(0, 0, 0, 0.7)', borderRadius: 2, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)', color: '#ffffff', width: '100%', maxWidth: '1100px' }}>
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>ID: </strong><a>f37c6639-561d-4721-bb43-d09a3a</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Value: </strong><a>69</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Unit: </strong><a>/min</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Category: </strong><a>vital-signs</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Issued: </strong><a>2015-10-16T14:48:16.211+00:00</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>EffectiveDateTime: </strong><a>2015-10-16T14:48:16+00:00</a>
+            </Typography>
+          </Grid>
+        </Grid>
+      </Paper>
+      <Typography variant="h4" gutterBottom sx={{ textAlign: 'left', paddingTop: '20px', color: '#00e676', width: '100%', maxWidth: '1100px' }}>
+        Hematocrit [Volume Fraction] of Blood by Automated count
+      </Typography>
+      <Paper sx={{ padding: '24px', marginTop: '20px', bgcolor: 'rgba(0, 0, 0, 0.7)', borderRadius: 2, boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)', color: '#ffffff', width: '100%', maxWidth: '1100px' }}>
+        <Grid container spacing={3}>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>ID: </strong><a>f37c6639-561d-4721-bb43-d09a3a</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Value: </strong><a>69</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Unit: </strong><a>/min</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Category: </strong><a>vital-signs</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>Issued: </strong><a>2015-10-16T14:48:16.211+00:00</a>
+            </Typography>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <Typography variant="body1" gutterBottom>
+              <strong>EffectiveDateTime: </strong><a>2015-10-16T14:48:16+00:00</a>
             </Typography>
           </Grid>
         </Grid>

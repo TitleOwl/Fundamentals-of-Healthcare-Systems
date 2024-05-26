@@ -2,73 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { AppBar, Toolbar, Typography, Button, Box, Container, List, ListItem, ListItemText, Divider } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import VisibilityIcon from '@mui/icons-material/Visibility';
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteIcon from '@mui/icons-material/Delete';
-import CodeIcon from '@mui/icons-material/Code';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#4a148c', // Deep Purple
-    },
-    secondary: {
-      main: '#ffab00', // Gold
-    },
-    success: {
-      main: '#2e7d32', // Green
-    },
-    error: {
-      main: '#d32f2f', // Red
-    },
-    background: {
-      default: '#f3e5f5', // Light lavender background
-    },
-  },
-  typography: {
-    fontFamily: 'Georgia, serif',
-    h4: {
-      color: '#4a148c',
-    },
-    body1: {
-      color: '#6a1b9a',
-    },
-    button: {
-      color: '#ffffff',
-    },
-  },
-  components: {
-    MuiAppBar: {
-      styleOverrides: {
-        root: {
-          backgroundColor: '#4a148c',
-        },
-      },
-    },
-    MuiButton: {
-      styleOverrides: {
-        root: {
-          textTransform: 'none',
-          borderRadius: '20px',
-          padding: '10px 20px',
-          margin: '0 10px',
-        },
-      },
-    },
-    MuiContainer: {
-      styleOverrides: {
-        root: {
-          padding: '20px',
-          backgroundColor: '#ffffff',
-          borderRadius: '20px',
-          boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
-        },
-      },
-    },
-  },
-});
 
 const PatientPage = () => {
   const [patients, setPatients] = useState([]);
@@ -109,82 +42,146 @@ const PatientPage = () => {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <Box sx={{ flexGrow: 1, minHeight: '100vh', bgcolor: 'background.default', p: 3 }}>
-        <AppBar position="static" elevation={0}>
-          <Toolbar>
-            <Button color="inherit" component={Link} to="/">
-              Back
-            </Button>
-            <Typography variant="h6" sx={{ flexGrow: 1, textAlign: 'center' }}>
-              Patient Management
-            </Typography>
-            <Button color="inherit" component={Link} to="/create-patient" sx={{ ml: 'auto' }}>
-              Create Patient
-            </Button>
-          </Toolbar>
-        </AppBar>
-        <Container sx={{ mt: 4 }}>
-          <Typography variant="h4" gutterBottom>
-            All Patients
+    <Box sx={{ flexGrow: 1, bgcolor: 'rgba(0, 0, 0, 0.85)', minHeight: '100vh', color: '#ffffff' }}>
+      <AppBar position="static" sx={{ bgcolor: 'rgba(0, 0, 0, 0.85)', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)' }}>
+        <Toolbar>
+          <Button
+            color="inherit"
+            component={Link}
+            to="/"
+            sx={{
+              color: '#00e676',
+              border: '1px solid #00e676',
+              borderRadius: 2,
+              padding: '8px 16px',
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                backgroundColor: '#00e676',
+                color: '#000',
+                transform: 'scale(1.05)',
+              },
+            }}
+          >
+            Back
+          </Button>
+          <Typography variant="h6" sx={{ flexGrow: 1, textAlign: 'center', color: '#00e676' }}>
+            Patient Management
           </Typography>
-          <Typography variant="body1" gutterBottom>
-            Use the navigation bar to create, update, or delete.
-          </Typography>
-          <List>
-            {patients.map((entry) => (
+          <Button
+            color="inherit"
+            component={Link}
+            to="/create-patient"
+            sx={{
+              ml: 'auto',
+              color: '#00e676',
+              border: '1px solid #00e676',
+              borderRadius: 2,
+              padding: '8px 16px',
+              transition: 'all 0.3s ease',
+              '&:hover': {
+                backgroundColor: '#00e676',
+                color: '#000',
+                transform: 'scale(1.05)',
+              },
+            }}
+          >
+            Create Patient
+          </Button>
+        </Toolbar>
+      </AppBar>
+      <Container sx={{ mt: 4, bgcolor: 'rgba(0, 0, 0, 0.7)', borderRadius: 2, p: 4, boxShadow: '0 8px 16px rgba(0, 0, 0, 0.6)', backdropFilter: 'blur(10px)', border: '1px solid #00e676' }}>
+        <Typography variant="h4" gutterBottom sx={{ color: '#00e676' }}>
+          All Patients
+        </Typography>
+        <Typography variant="body1" gutterBottom sx={{ color: '#ffffff' }}>
+          Use the navigation bar to create, update, or delete.
+        </Typography>
+        <List>
+          {patients.map((entry) => (
+            entry.resource && entry.resource.name && entry.resource.name[0] && (
               <div key={entry.resource.id}>
-                <ListItem>
-                  {entry.resource.name && entry.resource.name[0] && // เพิ่มเงื่อนไขนี้เพื่อตรวจสอบว่ามีข้อมูลในอาเรย์หรือไม่
-                    <ListItemText
-                      primary={`${entry.resource.name[0].family}, ${entry.resource.name[0].given.join(' ')}`}
-                      secondary={`ID: ${entry.resource.id}`}
-                    />
-                  }
+                <ListItem sx={{ bgcolor: 'rgba(0, 0, 0, 0.6)', borderRadius: 2, mb: 2 }}>
+                  <ListItemText
+                    primary={`${entry.resource.name[0].family}, ${entry.resource.name[0].given.join(' ')}`}
+                    secondary={`ID: ${entry.resource.id}`}
+                    primaryTypographyProps={{ color: '#ffffff' }}
+                    secondaryTypographyProps={{ color: '#aaaaaa' }}
+                  />
                   <Button
                     variant="contained"
-                    color="success"
-                    startIcon={<VisibilityIcon />}
-                    sx={{ mr: 2 }}
+                    sx={{
+                      bgcolor: '#00e676',
+                      color: '#000',
+                      mr: 2,
+                      '&:hover': { bgcolor: '#00c764' },
+                      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)',
+                      transition: 'all 0.3s ease',
+                      fontWeight: 'bold',
+                      borderRadius: 2,
+                      textTransform: 'none'
+                    }}
                     onClick={() => handleViewClick(entry.resource)}
                   >
                     View
                   </Button>
                   <Button
                     variant="contained"
-                    color="primary"
-                    startIcon={<EditIcon />}
-                    sx={{ mr: 2 }}
+                    sx={{
+                      bgcolor: '#1976d2',
+                      color: '#fff',
+                      mr: 2,
+                      '&:hover': { bgcolor: '#1565c0' },
+                      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)',
+                      transition: 'all 0.3s ease',
+                      fontWeight: 'bold',
+                      borderRadius: 2,
+                      textTransform: 'none'
+                    }}
                     onClick={() => handleEditClick(entry.resource)}
                   >
                     Edit
                   </Button>
                   <Button
                     variant="contained"
-                    color="error"
-                    startIcon={<DeleteIcon />}
-                    sx={{ mr: 2 }}
+                    sx={{
+                      bgcolor: '#d32f2f',
+                      color: '#fff',
+                      mr: 2,
+                      '&:hover': { bgcolor: '#c62828' },
+                      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)',
+                      transition: 'all 0.3s ease',
+                      fontWeight: 'bold',
+                      borderRadius: 2,
+                      textTransform: 'none'
+                    }}
                     onClick={() => handleDeleteClick(entry.resource.id)}
                   >
                     Delete
                   </Button>
                   <Button
                     variant="contained"
-                    color="secondary"
-                    startIcon={<CodeIcon />}
+                    sx={{
+                      bgcolor: '#ffb74d',
+                      color: '#000',
+                      '&:hover': { bgcolor: '#ff9800' },
+                      boxShadow: '0 4px 8px rgba(0, 0, 0, 0.5)',
+                      transition: 'all 0.3s ease',
+                      fontWeight: 'bold',
+                      borderRadius: 2,
+                      textTransform: 'none'
+                    }}
                     onClick={() => handleJsonClick(entry.resource)}
                   >
                     JSON
                   </Button>
                 </ListItem>
-                <Divider />
+                <Divider sx={{ bgcolor: '#00e676' }} />
               </div>
-            ))}
-          </List>
-        </Container>
-      </Box>
-    </ThemeProvider>
+            )
+          ))}
+        </List>
+      </Container>
+    </Box>
   );
 };
 
